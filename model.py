@@ -129,7 +129,7 @@ def vlaai(
 
     # If using skip connections: start with x set to zero
     if use_skip:
-        x = tf.zeros_like(eeg)
+        x = tf.keras.layers.Lambda(lambda y: tf.zeros_like(y))(eeg)
     else:
         x = eeg
 
